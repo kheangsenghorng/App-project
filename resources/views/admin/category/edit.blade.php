@@ -63,13 +63,23 @@
                                                   <option {{ ($category->status == 0) ? 'selected' : ''}} value="0">Block</option>
                                               </select>
                                           </div>
-                                      </div>									
+                                      </div>	
+
+                                      <div class="col-md-6">
+                                          <div class="mb-3">
+                                              <label for="showHome">Show on Home</label>
+                                              <select name="showHome" id="showHome" class="form-control">
+                                                  <option {{ ($category->showHome == 'Yes') ? 'selected' : ''}} value="Yes">Yes</option>
+                                                  <option {{ ($category->showHome == 'No') ? 'selected' : ''}} value="No">No</option>
+                                              </select>
+                                          </div>
+                                      </div>
                                   </div>
                               </div>							
                           </div>
                           <div class="pb-5 pt-3">
                               <button type="submit" class="btn btn-primary">Update</button>
-                              <a href="#" class="btn btn-outline-dark ml-3">Cancel</a>
+                              <a href="{{ route('categories.index') }}" class="btn btn-outline-dark ml-3">Cancel</a>
                           </div>
                       </form>
 
