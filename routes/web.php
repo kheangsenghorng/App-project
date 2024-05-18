@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
@@ -24,6 +25,11 @@ use Illuminate\Support\Str;
 
 Route::get('/', [FrontController::class,'index'])->name('front.home');
 Route::get('/shop/{categorySlug?}/{subCategorySlug?}', [ShopController::class,'index'])->name('front.shop');
+Route::get('/product/{slug}', [ShopController::class,'product'])->name('front.product');
+Route::get('/cart', [CartController::class,'cart'])->name('front.cart');
+Route::post('/add-to-cart', [CartController::class,'addToCart'])->name('front.addToCart');
+Route::post('/update-cart', [CartController::class,'updateCart'])->name('front.updateCart');
+Route::post('/delete-item', [CartController::class,'deleteItem'])->name('front.deleteItem.cart');
 
 
 
@@ -77,6 +83,7 @@ Route::get('/admin/dashboard', [HomeController::class,'index'])->
  Route::get('/products/{product}/edit', [ProductController::class,'edit'])->name('products.edit');
  Route::put('/products/{product}', [ProductController::class,'update'])->name('products.update');
  Route::delete('/products/{product}', [ProductController::class,'destroy'])->name('products.delete');
+ Route::get('/get-products', [ProductController::class,'getProducts'])->name('products.getProducts');
  
  
  Route::get('/admin/product-subcategories', [ProductSubCategoryController::class,'index'])->name('product-subcategories.index');

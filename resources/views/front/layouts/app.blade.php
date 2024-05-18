@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en_AU" />
+<html class="no-js" lang="en_AU" >
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Laravel computer shop</title>
@@ -34,9 +34,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-assets/css/slick.css') }}" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-assets/css/slick-theme.css')}} "/>
 	<link rel="stylesheet" type="text/css" href="{{ asset('front-assets/css/ion.rangeSlider.min.css')}} "/>
-
     <link rel="stylesheet" type="text/css" href="{{ asset('front-assets/css/style.css')}}" />
-
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,6 +42,7 @@
 
 	<!-- Fav Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="#" />
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body data-instant-intensity="mousedown">
 
@@ -148,7 +147,7 @@
       			</ul>      			
       		</div>   
 			<div class="right-nav py-0">
-				<a href="cart.php" class="ml-3 d-flex pt-2">
+				<a href="{{ route('front.cart') }}" class="ml-3 d-flex pt-2">
 					<i class="fas fa-shopping-cart text-primary"></i>					
 				</a>
 			</div> 		
@@ -229,6 +228,28 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+
+   function addToCart(id) {
+        $.ajax({
+			url: '{{ route("front.addToCart") }}',
+			type: 'post',
+			data: {id:id},
+			dataType: 'json',
+			success: function(response) {
+				if (response.status == true) {
+					window.location.href="{{ route("front.cart") }}";
+				}else{
+					alert(response.message);
+				}
+        }
+         });
+          }
+   
 </script>
    @yield('customJs')
 </body>
