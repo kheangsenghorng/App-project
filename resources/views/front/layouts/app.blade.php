@@ -50,7 +50,7 @@
 	<div class="container">
 		<div class="row align-items-center py-3 d-none d-lg-flex justify-content-between">
 			<div class="col-lg-4 logo">
-				<a href="index.php" class="text-decoration-none">
+				<a href="{{ route('front.home') }}" class="text-decoration-none">
 					<span class="h1 text-uppercase text-primary bg-dark px-2">Online</span>
 					<span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">SHOP</span>
 				</a>
@@ -73,7 +73,7 @@
 <header class="bg-dark">
 	<div class="container">
 		<nav class="navbar navbar-expand-xl" id="navbar">
-			<a href="index.php" class="text-decoration-none mobile-logo">
+			<a href="{{ route('front.home') }}" class="text-decoration-none mobile-logo">
 				<span class="h2 text-uppercase text-primary bg-dark">Online</span>
 				<span class="h2 text-uppercase text-white px-2">SHOP</span>
 			</a>
@@ -83,9 +83,9 @@
     		</button>
     		<div class="collapse navbar-collapse" id="navbarSupportedContent">
       			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        			<!-- <li class="nav-item">
-          				<a class="nav-link active" aria-current="page" href="index.php" title="Products">Home</a>
-        			</li> -->
+        			{{-- <li class="nav-item">
+          				<a class="nav-link active" aria-current="page" href="{{ route('front.home') }}" title="Products">Home</a>
+        			</li>  --}}
                     @if (getCategories()->isNotEmpty())
                     @foreach (getCategories() as $category)
 					<li class="nav-item dropdown">
