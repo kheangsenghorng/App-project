@@ -158,7 +158,7 @@
             },
             dataType: 'json',
             success: function(response) {
-                window.location.href = "{{ route('front.cart') }}";
+               window.location.href = "{{ route('front.cart') }}";
             },
             error: function(xhr, status, error) {
                 console.error('Error updating cart:', error);

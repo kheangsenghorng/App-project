@@ -8,7 +8,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
-           public function addToCart(Request $request) {
+     public function addToCart(Request $request) {
     $product = Product::with('product_images')->find($request->id);
 
     if ($product == null) {

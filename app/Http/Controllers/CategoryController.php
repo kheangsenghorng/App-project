@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Category;
 use App\Models\TempImage;
-// use Intervention\Image\ImageManager;
-// use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class CategoryController extends Controller
 {

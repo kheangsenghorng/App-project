@@ -70,7 +70,7 @@
                                           </div>
                                       </div>									
                                   </div>
-                              </div>							
+                              </div>						
                           </div>
                           <div class="pb-5 pt-3">
                               <button type="submit" class="btn btn-primary">Create</button>
